@@ -8,6 +8,7 @@ const deleteAll = async () => { await Product.deleteMany(); };
 const seedProducts = () => {
   const products = [];
   for (let i = 0; i < 100; i += 1) {
+    // eslint-disable-next-line prefer-const
     let fakeProduct = {
       photoGallery: [faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(),
         faker.image.imageUrl()],
