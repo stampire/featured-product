@@ -5,10 +5,12 @@ const productSchema = mongoose.Schema({
   photoGallery: { type: Array, required: true },
   productNumber: { type: Number, required: true, unique: true },
   name: { type: String, required: true },
+  brandName: String,
+  department: String,
   rating: { type: Number, required: true },
   ratingCount: { type: Number, required: true },
   price: { type: Number, required: true },
-  color: { type: String, required: true },
+  colors: { type: Array, required: true },
   description: { type: String, required: true },
   features: { type: Array, required: true },
   technicalSpecs: {

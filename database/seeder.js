@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
 const mongoose = require('mongoose');
 const faker = require('faker');
@@ -8,16 +9,22 @@ const deleteAll = async () => { await Product.deleteMany(); };
 const seedProducts = () => {
   const products = [];
   for (let i = 0; i < 100; i += 1) {
-    // eslint-disable-next-line prefer-const
+    let colorNum = Math.floor(Math.random() * 3 + 1);
+    let colorArr = [];
+    for (let j = 0; j < colorNum; j += 1) {
+      colorArr[j] = faker.commerce.color();
+    }
     let fakeProduct = {
       photoGallery: [faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(),
         faker.image.imageUrl()],
       productNumber: faker.random.number({ min: 100000, max: 999999 }),
       name: faker.commerce.productName(),
+      brandName: faker.random.word(),
+      department: faker.commerce.department(),
       rating: faker.random.number({ min: 1, max: 5, precision: 0.01 }),
       ratingCount: faker.random.number({ min: 1, max: 100 }),
       price: faker.random.number({ mind: 1, max: 3000, precision: 0.01 }),
-      color: faker.commerce.color(),
+      colors: colorArr,
       description: faker.commerce.productDescription(),
       features: [faker.random.words(5),
         faker.random.words(4),
