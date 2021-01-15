@@ -1,24 +1,15 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
 
-const productSchema = mongoose.Schema({
-  photoGallery: { type: Array, required: true },
-  productNumber: { type: Number, required: true, unique: true },
-  name: { type: String, required: true },
-  rating: { type: Number, required: true },
-  ratingCount: { type: Number, required: true },
-  price: { type: Number, required: true },
-  color: { type: String, required: true },
-  description: { type: String, required: true },
-  features: { type: Array, required: true },
-  technicalSpecs: {
-    bestUse: { type: String, required: true },
-    materials: { type: String, required: true },
-    dimensions: { type: Array, required: true },
-    weight: { type: Array, required: true },
-  },
+const connection = mongoose.connect('mongodb://localhost:27017/fec', { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connection.on('error', (error) => {
+  console.error(error);
 });
 
-productSchema.plugin(uniqueValidator);
+mongoose.connection.once('open', () => {
+  console.log('database connection is open');
+});
 
-// const Product = mongoose.model('Product', productSchema);
+module.exports = {
+  connection,
+};

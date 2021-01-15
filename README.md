@@ -1,15 +1,3 @@
-# 🚀 Welcome to your new awesome project!
+Featured Product/Product Details Component
 
-This project has been created using **webpack scaffold**, you can now run
-
-```
-npm run build
-```
-
-or
-
-```
-yarn build
-```
-
-to bundle your application
+Built in ReactJS, served by expressJS from MongoDB, tested with Jest/Enzyme.
