@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class DisplayImg extends React.Component {
+class GalleryImg extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,15 +12,13 @@ class DisplayImg extends React.Component {
   render() {
     const { photo } = this.props;
     return (
-      <>
-        <img src={photo} id="displayimg" alt="" />
-      </>
+      <div>{photo}</div>
     );
   }
 }
 
-DisplayImg.propTypes = {
+GalleryImg.propTypes = {
   photo: PropTypes.string.isRequired,
 };
 
-export default DisplayImg;
+export default GalleryImg;
