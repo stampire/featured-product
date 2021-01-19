@@ -3,12 +3,23 @@ import $ from 'jquery';
 import Path from './productpath';
 import DisplayImg from './displayimg';
 import ImgPick from './imgpick';
+import Description from './description';
+import Features from './features';
+import Specs from './specs';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: { photoGallery: [] },
+      product: {
+        photoGallery: [],
+        technicalSpecs: {
+          dimensions: [],
+          weight: [],
+        },
+        features: [],
+        colors: [],
+      },
       photo: {},
     };
   }
@@ -38,6 +49,9 @@ class App extends React.Component {
       department,
       brandName,
       photoGallery,
+      description,
+      features,
+      technicalSpecs,
     } = product;
     const {
       img,
@@ -48,6 +62,9 @@ class App extends React.Component {
         <Path department={department} brand={brandName} />
         <DisplayImg photo={img} index={index} />
         <ImgPick gallery={photoGallery} />
+        <Description description={description} />
+        <Features features={features} />
+        <Specs specs={technicalSpecs} />
       </div>
     );
   }
