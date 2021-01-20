@@ -13,10 +13,12 @@ const Specs = ({ specs }) => {
   return (
     <div>
       <h2>Technical specs</h2>
-      <li>{dimensionStr}</li>
-      <li>{weightStr}</li>
-      <li>{bestUse}</li>
-      <li>{materials}</li>
+      <ul>
+        <li>{dimensionStr}</li>
+        <li>{weightStr}</li>
+        <li>{bestUse}</li>
+        <li>{materials}</li>
+      </ul>
     </div>
   );
 };

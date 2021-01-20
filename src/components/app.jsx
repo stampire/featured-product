@@ -6,6 +6,7 @@ import ImgPick from './imgpick';
 import Description from './description';
 import Features from './features';
 import Specs from './specs';
+import ProductBox from './productbox';
 
 class App extends React.Component {
   constructor(props) {
@@ -52,6 +53,12 @@ class App extends React.Component {
       description,
       features,
       technicalSpecs,
+      colors,
+      productNumber,
+      name,
+      rating,
+      ratingCount,
+      price,
     } = product;
     const {
       img,
@@ -63,8 +70,17 @@ class App extends React.Component {
         <DisplayImg photo={img} index={index} />
         <ImgPick gallery={photoGallery} />
         <Description description={description} />
-        <Features features={features} />
+        <Features features={features} brand={brandName} />
         <Specs specs={technicalSpecs} />
+        <ProductBox
+          colors={colors}
+          brand={brandName}
+          name={name}
+          rating={rating}
+          ratingCount={ratingCount}
+          price={price}
+          productNumber={productNumber}
+        />
       </div>
     );
   }
