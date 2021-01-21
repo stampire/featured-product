@@ -12,12 +12,16 @@ const seedProducts = () => {
     let colorNum = Math.floor(Math.random() * 3 + 1);
     let colorArr = [];
     for (let j = 0; j < colorNum; j += 1) {
-      colorArr[j] = faker.commerce.color();
+      colorArr.push({
+        shade: faker.commerce.color(),
+        imgs: [faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(),
+          faker.image.imageUrl()],
+      });
     }
     let fakeProduct = {
       photoGallery: [faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(),
         faker.image.imageUrl()],
-      productNumber: faker.random.number({ min: 100000, max: 999999 }),
+      productNumber: 100000 + i,
       name: faker.commerce.productName(),
       brandName: faker.random.word(),
       department: faker.commerce.department(),
