@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
+    'jest/global': true,
   },
   extends: [
     'plugin:react/recommended',

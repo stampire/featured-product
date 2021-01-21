@@ -23,3 +23,5 @@ app.get('/product/', (req, res) => {
 app.listen(3001, () => {
   console.log('listening at port 3001');
 });
+
+module.exports = app;
