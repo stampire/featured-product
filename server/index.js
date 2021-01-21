@@ -8,10 +8,9 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
-app.get('/product/', (req, res) => {
-  // eslint-disable-next-line prefer-const
-  let random = Math.floor(Math.random() * 100);
-  Product.findOne().skip(random).exec((err, data) => {
+app.get('/product/:productId', (req, res) => {
+  const productNum = req.params.productId;
+  Product.findOne( { productNumber: productNum }).exec((err, data) => {
     if (err) {
       res.status(404).send();
     } else {
