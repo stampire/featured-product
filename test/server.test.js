@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const request = require('supertest');
 const app = require('../server/index');
 
@@ -8,4 +7,4 @@ describe('API requests', () => {
       .get('/product/')
       .expect(200, done);
   });
-})
+});

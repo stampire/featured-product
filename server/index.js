@@ -6,13 +6,13 @@ const Product = require('../database/schema.js');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use('/product/:productId', express.static(path.join(__dirname, '../dist')));
 
-app.get('/product/:productId', (req, res) => {
+app.get('/api/product/:productId', (req, res) => {
   const productNum = req.params.productId;
-  Product.findOne( { productNumber: productNum }).exec((err, data) => {
+  Product.findOne({ productNumber: productNum }).exec((err, data) => {
     if (err) {
-      res.status(404).send();
+      res.status(404).end();
     } else {
       res.status(200).send(data);
     }

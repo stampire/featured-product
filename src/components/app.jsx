@@ -19,21 +19,25 @@ class App extends React.Component {
           weight: [],
         },
         features: [],
-        colors: [],
+        colors: [{
+          shade: '',
+          imgs: [],
+        }],
       },
       photo: {},
+      colorIndex: 0,
     };
   }
 
   componentDidMount() {
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3001/product',
+      url: `http://localhost:3001/api${window.location.pathname}`,
       success: (data) => {
         this.setState({
           product: data,
           photo: {
-            img: data.photoGallery[0],
+            img: data.colors[0].imgs[0],
             index: 0,
           },
         });
@@ -45,15 +49,14 @@ class App extends React.Component {
   }
 
   render() {
-    const { product, photo } = this.state;
+    const { product, photo, colorIndex } = this.state;
     const {
       department,
       brandName,
-      photoGallery,
+      colors,
       description,
       features,
       technicalSpecs,
-      colors,
       productNumber,
       name,
       rating,
@@ -68,7 +71,7 @@ class App extends React.Component {
       <div>
         <Path department={department} brand={brandName} />
         <DisplayImg photo={img} index={index} />
-        <ImgPick gallery={photoGallery} />
+        <ImgPick gallery={colors[colorIndex].imgs} />
         <Description description={description} />
         <Features features={features} brand={brandName} />
         <Specs specs={technicalSpecs} />

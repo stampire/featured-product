@@ -19,8 +19,6 @@ const seedProducts = () => {
       });
     }
     let fakeProduct = {
-      photoGallery: [faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(),
-        faker.image.imageUrl()],
       productNumber: 100000 + i,
       name: faker.commerce.productName(),
       brandName: faker.random.word(),

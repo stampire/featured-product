@@ -5,15 +5,14 @@ class ProductBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
   }
 
   render() {
     const {
-      colors,
       brand,
       name,
+      colors,
       rating,
       ratingCount,
       price,
@@ -29,14 +28,17 @@ class ProductBox extends React.Component {
         {productNumber}
         {price}
         color:
-        {colors[0]}
+        {colors[0].shade}
       </div>
     );
   }
 }
 
 ProductBox.propTypes = {
-  colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  colors: PropTypes.arrayOf(PropTypes.shape({
+    shade: PropTypes.string,
+    imgs: PropTypes.arrayOf(PropTypes.string),
+  })).isRequired,
   brand: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
