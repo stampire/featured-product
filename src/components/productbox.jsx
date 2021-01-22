@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Quantity from './quantity';
 
 class ProductBox extends React.Component {
   constructor(props) {
@@ -18,6 +19,11 @@ class ProductBox extends React.Component {
       price,
       productNumber,
     } = this.props;
+    const colorImgs = [];
+    for (let i = 0; i < colors.length; i += 1) {
+      colorImgs.push(colors[i].imgs[0]);
+    }
+    const colorGal = colorImgs.map((img) => <img src={img} alt="" />);
     return (
       <div>
         {brand}
@@ -29,6 +35,8 @@ class ProductBox extends React.Component {
         {price}
         color:
         {colors[0].shade}
+        {colorGal}
+        <Quantity />
       </div>
     );
   }

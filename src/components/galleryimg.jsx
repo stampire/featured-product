@@ -12,7 +12,7 @@ class GalleryImg extends React.Component {
   render() {
     const { photo } = this.props;
     return (
-      <div>{photo}</div>
+      <div><img src={photo} alt="" /></div>
     );
   }
 }
