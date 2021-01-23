@@ -1,15 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Quantity from './quantity';
+import PurchaseBox from './purchasebox';
 
 class ProductBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      quantity: 1,
     };
+    this.increase = this.increase.bind(this);
+    this.decrease = this.decrease.bind(this);
+    this.changeQuantity = this.changeQuantity.bind(this);
+  }
+
+  increase(e) {
+    e.preventDefault();
+    const { quantity } = this.state;
+    this.setState({ quantity: quantity + 1 });
+  }
+
+  decrease(e) {
+    e.preventDefault();
+    const { quantity } = this.state;
+    if (quantity > 1) {
+      this.setState({ quantity: quantity - 1 });
+    }
+  }
+
+  changeQuantity(e) {
+    e.preventDefault();
+    if (e.target.value > 0) {
+      this.setState({ quantity: Number(e.target.value) });
+    }
   }
 
   render() {
+    const { quantity } = this.state;
     const {
       brand,
       name,
@@ -28,15 +55,34 @@ class ProductBox extends React.Component {
       <div>
         {brand}
         <h1>{name}</h1>
-        {rating}
-        {ratingCount}
-        Item #
-        {productNumber}
+        <br />
+        <span>
+          {rating}
+        &nbsp;
+          {ratingCount}
+        </span>
+        <span>
+          Item #
+          {productNumber}
+        </span>
+        <br />
+        $
         {price}
-        color:
+        <br />
+        color:&nbsp;
         {colors[0].shade}
+        <br />
+        $
+        {price}
+        <br />
         {colorGal}
-        <Quantity />
+        <Quantity
+          quantity={quantity}
+          increase={this.increase}
+          decrease={this.decrease}
+          changeQuantity={this.changeQuantity}
+        />
+        <PurchaseBox quantity={quantity} price={price} />
       </div>
     );
   }

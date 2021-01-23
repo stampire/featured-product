@@ -24,7 +24,10 @@ class App extends React.Component {
           imgs: [],
         }],
       },
-      photo: {},
+      photo: {
+        img: '',
+        index: 0,
+      },
       colorIndex: 0,
     };
   }
@@ -67,11 +70,12 @@ class App extends React.Component {
       img,
       index,
     } = photo;
+    const { shade } = colors[0];
     return (
       <div>
         <Path department={department} brand={brandName} />
         <DisplayImg photo={img} index={index} />
-        <ImgPick gallery={colors[colorIndex].imgs} />
+        <ImgPick gallery={colors[colorIndex].imgs} index={index} shade={shade} />
         <Description description={description} />
         <Features features={features} brand={brandName} />
         <Specs specs={technicalSpecs} />
