@@ -1,0 +1,90 @@
+
+.container {
+  display: grid;
+  grid-template-columns: [col1] 1fr [col2] 5fr [col3] 2fr [col4] 1.5fr [col5] 1.5fr [col6] 1fr;
+  grid-template-rows: [row1] 3% [row2] 32% [row3] 5% [row4] 5% [row5] 15% [row6] 10% [row7] 30%;
+  height: 1500px;
+  width: auto;
+}
+
+.path {
+  grid-row-start: row1;
+  grid-column-start: col2;
+  grid-column-end: col3;
+}
+
+.product-box {
+  grid-row-start: row2;
+  grid-row-end: row3;
+  grid-column-start: col3;
+  grid-column-end: col5;
+  margin: 10px;
+}
+
+.gallery {
+  display: block;
+  width: 420px;
+  height: 100%;
+  grid-column-start: col2;
+  grid-column-end: col3;
+  grid-row-start: row4;
+  grid-row-end: row5;
+}
+
+.gallery-image img {
+  max-width: 100px;
+  max-height: 70px;
+  cursor: pointer;
+  margin: 4px 4px 0px 0px;
+}
+
+.color-gal {
+  display: block;
+}
+
+.color-gal img {
+  max-width: 40px;
+  max-height: 40px;
+  cursor: pointer;
+  margin: 1px 5px 0px 0px;
+}
+
+.display-image {
+  grid-column-start: col2;
+  grid-column-end: col3;
+  grid-row-start: row2;
+  grid-row-end: row4;
+}
+
+.purchase-box {
+  grid-column-start: col3;
+  grid-column-end: col5;
+  grid-row-start: row3;
+  grid-row-end: row5;
+}
+
+.description {
+  grid-column-start: col1;
+  grid-column-end: col6;
+  grid-row-start: row6;
+  padding: 45px 90px;
+}
+
+.features-specs {
+  grid-column-start: col2;
+  grid-column-end: col5;
+  grid-row-start: row7;
+  display: block;
+}
+
+.features {
+  width: 45%;
+  padding: 15px;
+  float: left;
+}
+
+.specs {
+  width: 45%;
+  padding: 15px;
+  float: right;
+}

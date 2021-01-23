@@ -12,7 +12,7 @@ class PurchaseBox extends React.Component {
   render() {
     const { quantity, price } = this.props;
     return (
-      <div>
+      <div className="purchase-box">
         <div>
           <p>Avoid shipping delays, choose Curbside Pickup available at select locations.</p>
           <a href="#0">Learn more</a>
@@ -33,7 +33,7 @@ class PurchaseBox extends React.Component {
             <br />
             <button type="submit">
               Add to cart &mdash; $
-              {quantity * price}
+              {(quantity * price).toFixed(2)}
             </button>
             <br />
             <button type="button">Add to wish list</button>

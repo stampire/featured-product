@@ -6,7 +6,7 @@ import Feature from './feature';
 const Features = ({ features, brand }) => {
   const featuresList = features.map((feature) => <Feature feature={feature} />);
   return (
-    <div>
+    <div className="features">
       <h2>Features</h2>
       <ul>{featuresList}</ul>
       Imported.

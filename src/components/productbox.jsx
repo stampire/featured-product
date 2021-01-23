@@ -52,14 +52,14 @@ class ProductBox extends React.Component {
     }
     const colorGal = colorImgs.map((img) => <img src={img} alt="" />);
     return (
-      <div>
+      <div className="product-box">
         {brand}
         <h1>{name}</h1>
         <br />
         <span>
           {rating}
         &nbsp;
-          {ratingCount}
+          {`(${ratingCount})`}
         </span>
         <span>
           Item #
@@ -74,7 +74,7 @@ class ProductBox extends React.Component {
         REI Members get back an estimated&nbsp;
         <span>
           $
-          {price / 10}
+          {(price / 10).toFixed(2)}
         </span>
         &nbsp;on this item as part of their&nbsp;
         <a href="#0">member dividend.</a>
@@ -85,7 +85,9 @@ class ProductBox extends React.Component {
         $
         {price}
         <br />
-        {colorGal}
+        <div className="color-gal">
+          {colorGal}
+        </div>
         <Quantity
           quantity={quantity}
           increase={this.increase}

@@ -72,13 +72,15 @@ class App extends React.Component {
     } = photo;
     const { shade } = colors[0];
     return (
-      <div>
+      <div className="container">
         <Path department={department} brand={brandName} />
         <DisplayImg photo={img} index={index} />
         <ImgPick gallery={colors[colorIndex].imgs} index={index} shade={shade} />
         <Description description={description} />
-        <Features features={features} brand={brandName} />
-        <Specs specs={technicalSpecs} />
+        <div className="features-specs">
+          <Features features={features} brand={brandName} />
+          <Specs specs={technicalSpecs} />
+        </div>
         <ProductBox
           colors={colors}
           brand={brandName}

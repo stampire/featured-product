@@ -12,9 +12,9 @@ class DisplayImg extends React.Component {
   render() {
     const { photo } = this.props;
     return (
-      <>
+      <div className="display-image">
         <img src={photo} id="displayimg" alt="" />
-      </>
+      </div>
     );
   }
 }

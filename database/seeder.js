@@ -27,7 +27,7 @@ const seedProducts = () => {
       ratingCount: faker.random.number({ min: 1, max: 100 }),
       price: faker.random.number({ mind: 1, max: 3000, precision: 0.01 }),
       colors: colorArr,
-      description: faker.commerce.productDescription(),
+      description: `${faker.commerce.productDescription()} ${faker.commerce.productDescription()}`,
       features: [faker.random.words(5),
         faker.random.words(4),
         faker.random.words(6),
