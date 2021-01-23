@@ -20,12 +20,12 @@ class PurchaseBox extends React.Component {
         <div>
           <form>
             <label htmlFor="ship">
-              <input type="radio" name="ship" />
+              <input type="radio" id="ship" name="shipOpt" />
               Ship to address
             </label>
             <br />
             <label htmlFor="curb">
-              <input type="radio" name="curb" />
+              <input type="radio" id="curb" name="shipOpt" checked />
               Pick up at store
               <br />
               <a href="#0">Find a store near you</a>

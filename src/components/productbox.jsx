@@ -69,6 +69,16 @@ class ProductBox extends React.Component {
         $
         {price}
         <br />
+        <a href="#0">Orders of $50 or more ship for free.</a>
+        <br />
+        REI Members get back an estimated&nbsp;
+        <span>
+          $
+          {price / 10}
+        </span>
+        &nbsp;on this item as part of their&nbsp;
+        <a href="#0">member dividend.</a>
+        <br />
         color:&nbsp;
         {colors[0].shade}
         <br />
