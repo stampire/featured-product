@@ -12,7 +12,7 @@ app.get('/api/product/:productId', (req, res) => {
   const productNum = req.params.productId;
   Product.findOne({ productNumber: productNum }).exec((err, data) => {
     if (err) {
-      res.status(404).end();
+      res.status(404).send(err);
     } else {
       res.status(200).send(data);
     }

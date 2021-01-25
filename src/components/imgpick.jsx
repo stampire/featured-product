@@ -1,13 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ImgPick = ({ gallery, index, shade }) => (
+const ImgPick = ({
+  gallery,
+  index,
+  shade,
+  changeDisplay,
+}) => (
   <div className="gallery">
     <div className="gallery-image">
-      <img src={gallery[0]} alt="1" />
-      <img src={gallery[1]} alt="2" />
-      <img src={gallery[2]} alt="3" />
-      <img src={gallery[3]} alt="4" />
+      <button type="button" value="0" onClick={changeDisplay}>
+        <img src={gallery[0]} alt="1" />
+      </button>
+      <button type="button" value="1" onClick={changeDisplay}>
+        <img src={gallery[1]} alt="2" />
+      </button>
+      <button type="button" value="2" onClick={changeDisplay}>
+        <img src={gallery[2]} alt="3" />
+      </button>
+      <button type="button" value="3" onClick={changeDisplay}>
+        <img src={gallery[3]} alt="4" />
+      </button>
     </div>
     <br />
     Image&nbsp;
@@ -23,6 +36,7 @@ ImgPick.propTypes = {
   gallery: PropTypes.arrayOf(PropTypes.string).isRequired,
   index: PropTypes.number.isRequired,
   shade: PropTypes.string.isRequired,
+  changeDisplay: PropTypes.func.isRequired,
 };
 
 export default ImgPick;

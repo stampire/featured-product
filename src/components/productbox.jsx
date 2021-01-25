@@ -45,12 +45,15 @@ class ProductBox extends React.Component {
       ratingCount,
       price,
       productNumber,
+      changeColor,
+      colorIndex,
     } = this.props;
     const colorImgs = [];
     for (let i = 0; i < colors.length; i += 1) {
       colorImgs.push(colors[i].imgs[0]);
     }
-    const colorGal = colorImgs.map((img) => <img src={img} alt="" />);
+    const colorGal = colorImgs.map((img, index) => (
+      <button type="button" value={index} onClick={changeColor}><img src={img} alt={index} /></button>));
     return (
       <div className="product-box">
         {brand}
@@ -80,7 +83,7 @@ class ProductBox extends React.Component {
         <a href="#0">member dividend.</a>
         <br />
         color:&nbsp;
-        {colors[0].shade}
+        {colors[colorIndex].shade}
         <br />
         $
         {price}
@@ -111,6 +114,8 @@ ProductBox.propTypes = {
   ratingCount: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
   productNumber: PropTypes.number.isRequired,
+  changeColor: PropTypes.func.isRequired,
+  colorIndex: PropTypes.number.isRequired,
 };
 
 export default ProductBox;

@@ -12,8 +12,10 @@ const Features = ({ features, brand }) => {
       Imported.
       <br></br>
       <br></br>
-      View all&nbsp;
-      {brand}
+      <a href="#0">
+        View all&nbsp;
+        {brand}
+      </a>
     </div>
   );
 };

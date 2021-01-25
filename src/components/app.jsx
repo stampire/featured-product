@@ -30,6 +30,8 @@ class App extends React.Component {
       },
       colorIndex: 0,
     };
+    this.changeDisplay = this.changeDisplay.bind(this);
+    this.changeColor = this.changeColor.bind(this);
   }
 
   componentDidMount() {
@@ -47,6 +49,31 @@ class App extends React.Component {
       },
       error: (err) => {
         throw err;
+      },
+    });
+  }
+
+  changeDisplay(e) {
+    e.preventDefault();
+    const newIndex = Number(e.currentTarget.value);
+    const { colorIndex, product } = this.state;
+    this.setState({
+      photo: {
+        img: product.colors[colorIndex].imgs[newIndex],
+        index: newIndex,
+      },
+    });
+  }
+
+  changeColor(e) {
+    e.preventDefault();
+    const newColor = Number(e.currentTarget.value);
+    const { product } = this.state;
+    this.setState({
+      colorIndex: newColor,
+      photo: {
+        img: product.colors[newColor].imgs[0],
+        index: 0,
       },
     });
   }
@@ -70,12 +97,17 @@ class App extends React.Component {
       img,
       index,
     } = photo;
-    const { shade } = colors[0];
+    const { shade } = colors[colorIndex];
     return (
       <div className="container">
         <Path department={department} brand={brandName} />
         <DisplayImg photo={img} index={index} />
-        <ImgPick gallery={colors[colorIndex].imgs} index={index} shade={shade} />
+        <ImgPick
+          gallery={colors[colorIndex].imgs}
+          index={index}
+          shade={shade}
+          changeDisplay={this.changeDisplay}
+        />
         <Description description={description} />
         <div className="features-specs">
           <Features features={features} brand={brandName} />
@@ -89,6 +121,8 @@ class App extends React.Component {
           ratingCount={ratingCount}
           price={price}
           productNumber={productNumber}
+          changeColor={this.changeColor}
+          colorIndex={colorIndex}
         />
       </div>
     );
