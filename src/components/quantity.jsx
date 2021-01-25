@@ -9,12 +9,12 @@ const Quantity = (props) => {
     changeQuantity,
   } = props;
   return (
-    <div>
-      <p>Quantity</p>
+    <div className="quantity">
+      <p className="bolded">Quantity</p>
       <div>
-        <button onClick={decrease} type="button">&mdash;</button>
-        <input type="text" onChange={changeQuantity} value={quantity} />
-        <button onClick={increase} type="button">&#xff0b;</button>
+        <button onClick={decrease} type="button" className="q-button left">&mdash;</button>
+        <input type="text" onChange={changeQuantity} value={quantity} className="entry" />
+        <button onClick={increase} type="button" className="q-button right">&#xff0b;</button>
       </div>
     </div>
   );

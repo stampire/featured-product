@@ -28,7 +28,7 @@ const ImgPick = ({
     &nbsp;of&nbsp;
     {gallery.length}
     :&nbsp;
-    <span>{shade}</span>
+    <span id="gal-shade">{shade}</span>
   </div>
 );
 

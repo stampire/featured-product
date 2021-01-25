@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Quantity from './quantity';
 import PurchaseBox from './purchasebox';
+import Stars from './stars';
 
 class ProductBox extends React.Component {
   constructor(props) {
@@ -54,39 +55,51 @@ class ProductBox extends React.Component {
     }
     const colorGal = colorImgs.map((img, index) => (
       <button type="button" value={index} onClick={changeColor}><img src={img} alt={index} /></button>));
+    const shadeStr = colors[colorIndex].shade;
     return (
       <div className="product-box">
-        {brand}
+        <a href="#0">{brand}</a>
         <h1>{name}</h1>
         <br />
-        <span>
+        <Stars rating={rating} />
+        <a href="#0">
           {rating}
-        &nbsp;
+        &nbsp;|&nbsp;
           {`(${ratingCount})`}
-        </span>
+        </a>
         <span>
-          Item #
+          &nbsp;    Item #
           {productNumber}
         </span>
         <br />
-        $
-        {price}
+        <span className="bolded larger">
+          $
+          {price}
+        </span>
+        <br />
         <br />
         <a href="#0">Orders of $50 or more ship for free.</a>
         <br />
+        <br />
         REI Members get back an estimated&nbsp;
-        <span>
+        <span className="bolded">
           $
           {(Math.round((price / 10) * 2) / 2).toFixed(2)}
         </span>
         &nbsp;on this item as part of their&nbsp;
         <a href="#0">member dividend.</a>
         <br />
-        color:&nbsp;
-        {colors[colorIndex].shade}
         <br />
-        $
-        {price}
+        <span className="bolded">
+          Color:&nbsp;
+          {`${shadeStr.charAt(0).toUpperCase()}${shadeStr.slice(1)}`}
+        </span>
+        <br />
+        <br />
+        <span className="bolded">
+          $
+          {price}
+        </span>
         <br />
         <div className="color-gal">
           {colorGal}
