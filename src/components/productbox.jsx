@@ -77,7 +77,7 @@ class ProductBox extends React.Component {
         REI Members get back an estimated&nbsp;
         <span>
           $
-          {(price / 10).toFixed(2)}
+          {(Math.round((price / 10) * 2) / 2).toFixed(2)}
         </span>
         &nbsp;on this item as part of their&nbsp;
         <a href="#0">member dividend.</a>

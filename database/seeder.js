@@ -47,6 +47,54 @@ const seedProducts = () => {
 const insertProducts = async () => {
   const products = seedProducts();
   await Product.insertMany(products);
+  await Product.create({
+    productNumber: 100100,
+    name: 'Trigger Point Performance GRID Foam Roller',
+    brandName: 'Trigger Point Performance',
+    department: 'Fitness',
+    rating: 4.8,
+    ratingCount: 62,
+    price: 34.95,
+    colors: [
+      {
+        shade: 'black',
+        imgs: [
+          'https://stampire-misc-images.s3-us-west-1.amazonaws.com/fec-featured-product/roller-black-1.jpeg',
+          'https://stampire-misc-images.s3-us-west-1.amazonaws.com/fec-featured-product/roller-black-2.jpeg',
+          'https://stampire-misc-images.s3-us-west-1.amazonaws.com/fec-featured-product/roller-black-3.jpeg',
+          'https://stampire-misc-images.s3-us-west-1.amazonaws.com/fec-featured-product/roller-black-4.jpeg',
+        ],
+      },
+      {
+        shade: 'orange',
+        imgs: [
+          'https://stampire-misc-images.s3-us-west-1.amazonaws.com/fec-featured-product/roller-orange-1.jpeg',
+          'https://stampire-misc-images.s3-us-west-1.amazonaws.com/fec-featured-product/roller-orange-2.jpeg',
+          'https://stampire-misc-images.s3-us-west-1.amazonaws.com/fec-featured-product/roller-orange-3.jpeg',
+          'https://stampire-misc-images.s3-us-west-1.amazonaws.com/fec-featured-product/roller-orange-4.jpeg',
+        ],
+      },
+    ],
+    description: 'Soothe tight muscles and promote healing blood flow with the Trigger Point Performance GRID foam roller. Its firm, 3D surface pattern offers muscle repair assistance when you\'re training hard.',
+    features: [
+      'Hard, hollow-core roller is hand-wrapped with EVA foam to create a firm surface for increased massage intensity',
+      'Environmentally conscious design uses less material than traditional foam rollers',
+      'Weight tested to support static loads up to 500 lbs.',
+    ],
+    technicalSpecs: {
+      bestUse: 'Multisport',
+      materials: 'EVA foam',
+      dimensions: [
+        5.5,
+        13,
+        0,
+      ],
+      weight: [
+        1,
+        8,
+      ],
+    },
+  });
 };
 
 const seed = async () => {
