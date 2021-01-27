@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 // eslint-disable-next-line no-unused-vars
 const connection = require('../database/index.js');
 const Product = require('../database/schema.js');
@@ -7,6 +8,8 @@ const Product = require('../database/schema.js');
 const app = express();
 
 app.use('/product/:productId', express.static(path.join(__dirname, '../dist')));
+app.use('/', express.static(path.join(__dirname, '../dist')));
+app.use(cors());
 
 app.get('/api/product/:productId', (req, res) => {
   const productNum = req.params.productId;
