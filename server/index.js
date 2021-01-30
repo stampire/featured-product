@@ -4,6 +4,7 @@ const cors = require('cors');
 // eslint-disable-next-line no-unused-vars
 const connection = require('../database/index.js');
 const Product = require('../database/schema.js');
+const seed = require('../database/seeder.js');
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.get('/api/product/:productId', (req, res) => {
     }
   });
 });
+
+seed();
 
 app.listen(3001, () => {
   console.log('listening at port 3001');

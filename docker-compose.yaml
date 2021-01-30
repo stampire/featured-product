@@ -1,0 +1,7 @@
+services:
+  web:
+    build: ./
+    ports:
+      - "80:3001"
+    container_name: featured
+    image: stampire/featured:latest

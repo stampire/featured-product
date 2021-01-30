@@ -37,9 +37,9 @@ class App extends React.Component {
   componentDidMount() {
     let urlStr;
     if (window.location.pathname.length > 4) {
-      urlStr = `http://localhost:3001/api${window.location.pathname}`;
+      urlStr = `http://13.52.221.101/api${window.location.pathname}`;
     } else {
-      urlStr = `http://localhost:3001/api/product/100100`;
+      urlStr = `http://13.52.221.101/api/product/100100`;
     }
     $.ajax({
       type: 'GET',
