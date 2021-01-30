@@ -5,7 +5,7 @@ const faker = require('faker');
 const Product = require('./schema.js');
 const connection = require('./index.js');
 
-// const deleteAll = async () => { await Product.deleteMany(); };
+const deleteAll = async () => { await Product.deleteMany(); };
 const seedProducts = () => {
   const products = [];
   for (let i = 0; i < 100; i += 1) {
@@ -99,7 +99,7 @@ const insertProducts = async () => {
 
 const seed = async () => {
   try {
-    // await deleteAll();
+    await deleteAll();
     await insertProducts();
     console.log('seeded');
   }
